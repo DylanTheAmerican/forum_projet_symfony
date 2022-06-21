@@ -3,7 +3,7 @@
      <img src="{{ asset('img/logo-02.png') }}" id="logo-header" alt="Logo - Dotcode">
     <nav>
         <a href="{{ path('main') }}">Accueil</a>
-        <a href="{{ path('main') }}">Catégorie</a>
+        <a href="{{ path('category-main') }}">Catégorie</a>
         <a href="{{ path('main') }}">Forum</a>
         {% if is_granted('ROLE_ADMINISTRATOR') %}
             <a href="{{ path('main') }}">Administration</a>

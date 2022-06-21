@@ -29,19 +29,19 @@ class TopicFixtures extends Fixture implements DependentFixtureInterface
             /** @var User $randomUser */
             $randomUser = $this->getReference('user-' . $randomUserId);
 
-            // $randomCategoryId = $this->faker->numberBetween(0, 4);
+            $randomCategoryId = $this->faker->numberBetween(0, 4);
             /** @var Category $randomCategory */
-            // $randomCategory = $this->getReference('category-' . $randomCategoryId);
+            $randomCategory = $this->getReference('category-' . $randomCategoryId);
 
             $title = $this->faker->sentence(6);
             $topic = (new Topic())
                 ->setTitle($title)
-                // ->setSlug($this->slugger->slug($title)->lower())
+                ->setSlug($this->slugger->slug($title)->lower())
                 ->setPublishedDate($this->faker->dateTime())
                 ->setContent($this->faker->realText())
                 // ->setUpdatedAt(new \DateTime())
-                ->setAuthor($randomUser);
-                // ->setCategory($randomCategory);
+                ->setAuthor($randomUser)
+                ->setCategory($randomCategory);
 
             $manager->persist($topic);
             $this->setReference('topic-' . $a, $topic);

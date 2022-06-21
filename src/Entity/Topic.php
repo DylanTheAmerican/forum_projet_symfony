@@ -2,12 +2,16 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\SlugTrait;
 use App\Repository\TopicRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TopicRepository::class)]
 class Topic
 {
+
+    use SlugTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -25,6 +29,10 @@ class Topic
 
     #[ORM\Column(type: 'datetime')]
     private $published_date;
+
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'topics')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $category;
 
     public function getId(): ?int
     {
@@ -75,6 +83,18 @@ class Topic
     public function setPublishedDate(\DateTimeInterface $published_date): self
     {
         $this->published_date = $published_date;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

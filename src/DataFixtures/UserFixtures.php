@@ -73,9 +73,8 @@ class UserFixtures extends Fixture
             ->setPostalcode($data['postalcode'])
             ->setCity($data['city'])
             ->setEmail($data['email'])
-            ->setPhonenumber($data['phonenumber']);
-            
-            // ->computeSlug($this->slugger)
+            ->setPhonenumber($data['phonenumber'])
+            ->computeSlug($this->slugger);
             
 
         $user->setPassword($this->passwordEncoder->hashPassword($user, $data['password']));

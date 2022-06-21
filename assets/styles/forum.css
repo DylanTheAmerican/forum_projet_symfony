@@ -1,0 +1,13 @@
+.container-forum{
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+}
+
+.block-forum{
+    width: 75%;
+    height: 10em;
+    border: 1px solid rgb(145, 145, 145);
+    display: flex;
+    flex-direction:row;
+}
