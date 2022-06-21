@@ -1,0 +1,23 @@
+<header>
+    <div id="header-other">
+     <img src="{{ asset('img/logo-02.png') }}" id="logo-header" alt="Logo - Dotcode">
+    <nav>
+        <a href="{{ path('main') }}">Accueil</a>
+        <a href="{{ path('main') }}">Catégorie</a>
+        <a href="{{ path('main') }}">Forum</a>
+        {% if is_granted('ROLE_ADMINISTRATOR') %}
+            <a href="{{ path('main') }}">Administration</a>
+        {% endif %}
+        
+       {% if is_granted('ROLE_USER') %}
+
+        <a href="{{ path('main') }}">Profil</a>
+
+        {% else %}
+        
+            <a href="{{ path('app_login') }}">Connexion</a>
+
+        {% endif %}
+    </nav>
+    </div>
+</header>

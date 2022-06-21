@@ -1,0 +1,34 @@
+.widget-form{
+    width: 100%;
+    height: 2.5em;
+    border-radius: 5px;
+    border: 1px solid rgb(155, 155, 155);
+    margin-bottom: 10px;
+}
+
+.fieldset-form{
+    margin-bottom: 2em;
+    border: 1px solid rgb(155, 155, 155);
+    padding: 1em;
+    /* border: none; */
+}
+
+.flex-form{
+   display: flex;
+   justify-content: center;
+}
+
+.container-form{
+    width: 80%;
+ }
+
+ .form-button{
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    border:none;
+    margin-right: 120px;
+    background-color: #FF5A5F;
+    color:white;
+    font-size: 15px;
+ }
