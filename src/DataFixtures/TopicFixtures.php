@@ -54,7 +54,7 @@ class TopicFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             UserFixtures::class,
-            // CategoryFixtures::class,
+            CategoryFixtures::class,
         ];
     }
 

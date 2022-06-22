@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Entity\Trait\SlugTrait;
 use App\Repository\TopicRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TopicRepository::class)]
@@ -33,6 +35,14 @@ class Topic
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'topics')]
     #[ORM\JoinColumn(nullable: false)]
     private $category;
+
+    #[ORM\OneToMany(mappedBy: 'topic', targetEntity: TopicAnswer::class, orphanRemoval: true)]
+    private $answers;
+
+    public function __construct()
+    {
+        $this->answers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -95,6 +105,36 @@ class Topic
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TopicAnswer>
+     */
+    public function getAnswers(): Collection
+    {
+        return $this->answers;
+    }
+
+    public function addAnswer(TopicAnswer $answer): self
+    {
+        if (!$this->answers->contains($answer)) {
+            $this->answers[] = $answer;
+            $answer->setTopic($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAnswer(TopicAnswer $answer): self
+    {
+        if ($this->answers->removeElement($answer)) {
+            // set the owning side to null (unless already changed)
+            if ($answer->getTopic() === $this) {
+                $answer->setTopic(null);
+            }
+        }
 
         return $this;
     }

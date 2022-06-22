@@ -58,9 +58,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Topic::class)]
     private $topics;
 
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: TopicAnswer::class)]
+    private $topicAnswers;
+
     public function __construct()
     {
         $this->topics = new ArrayCollection();
+        $this->topicAnswers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -254,6 +258,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $this->getFirstname() . ' ' . $this->getLastname()
             )->lower()
         );
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TopicAnswer>
+     */
+    public function getTopicAnswers(): Collection
+    {
+        return $this->topicAnswers;
+    }
+
+    public function addTopicAnswer(TopicAnswer $topicAnswer): self
+    {
+        if (!$this->topicAnswers->contains($topicAnswer)) {
+            $this->topicAnswers[] = $topicAnswer;
+            $topicAnswer->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTopicAnswer(TopicAnswer $topicAnswer): self
+    {
+        if ($this->topicAnswers->removeElement($topicAnswer)) {
+            // set the owning side to null (unless already changed)
+            if ($topicAnswer->getAuthor() === $this) {
+                $topicAnswer->setAuthor(null);
+            }
+        }
 
         return $this;
     }

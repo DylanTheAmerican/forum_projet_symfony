@@ -5,18 +5,30 @@
 {% block body %}
 
 <div class="container-forum">
- 
-    <h1>Forum foot</h1>
-    <h2>Les derniers forums</h2>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
-        {% for post in posts %}
-            {% include '_partials/topic/card.html.twig' with { post: post } only %}
-        {% endfor %}
+    <div class="forum">
+ 
+        <h1>Forum foot</h1>
+        <h2>Les derniers forums</h2>
+
+        <div class="header-forum">
+        
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
+            {% for post in posts %}
+                {% include '_partials/topic/card.html.twig' with { post: post } only %}
+            {% endfor %}
+        </div>
+
+        <div class="footer-forum">
+        
+        </div>
+        {# <div class="text-center mt-5">
+            <a href="{{ path('post-main') }}" class="btn btn-lg btn-outline-primary">Voir tous les articles</a>
+        </div> #}
+
     </div>
-    {# <div class="text-center mt-5">
-        <a href="{{ path('post-main') }}" class="btn btn-lg btn-outline-primary">Voir tous les articles</a>
-    </div> #}
 
 </div>
 

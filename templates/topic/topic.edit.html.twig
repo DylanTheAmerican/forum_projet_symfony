@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ topic.title }}{% endblock %}
+
+{% block body %}
+    <h1>Forum</h1>
+    <h2>Edition / {{ topic.title }}</h2>
+
+    {{ form_start(topicForm) }}
+
+        {{ form_row(topicForm.title) }}
+        {{ form_row(topicForm.category) }}
+        {{ form_row(topicForm.author) }}
+        {{ form_row(topicForm.content) }}
+
+        <button type="submit" class="btn btn-outline-primary">Modifier</button>
+    {{ form_end(topicForm) }}
+{% endblock %}
