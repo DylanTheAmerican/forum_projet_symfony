@@ -1,34 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ category.title }}{% endblock %}
+{% block title %}{{ author.firstname }} {{ author.lastname }}{% endblock %}
 
 {% block body %}
-
 <div class="container-forum">
 
     <div class="forum">
 
-        <h2>Catégorie / {{ category.title }}</h2>
+        <h2>Auteur / {{ author.firstname }} {{ author.lastname }}</h2>
 
-         <div class="header-forum">
+        <div class="header-forum">
         
         </div>
 
-        <div class="">
-
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-3">
             {% for post in posts %}
                 {% include '_partials/topic/card.html.twig' with { post: post } only %}
             {% endfor %}
-
         </div>
-
+        
         <div class="footer-forum">
-            <a href="{{ path('topic-main') }}" class="bouton-voir-articles">Voir tous les articles</a>
         </div>
 
     </div>
-    
-</div>
-    
 
+</div>
 {% endblock %}

@@ -40,11 +40,11 @@ class TopicController extends AbstractController
     #[Route('/{slug}/edit', name: 'editBySlug')]
     public function postEdit(Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
     {
-        if ($response = $this->checkRole('ROLE_USER')) {
+        if ($response = $this->checkRole('ROLE_AUTHOR')) {
             return $response;
         }
 
-        $form = $this->createForm(PostFormType::class, $topic);
+        $form = $this->createForm(TopicAnswerFormType::class, $topic);
         $form->handleRequest($request);
 
         if ($this->getUser() && $form->isSubmitted() && $form->isValid()) {

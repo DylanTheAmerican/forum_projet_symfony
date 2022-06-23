@@ -1,0 +1,17 @@
+- Création du controller Forum (main)
+- Création de l'entité de User
+- Création de l'entité de Topic
+- Création du DataFixtures de User
+- Création du DataFixtures de Topic
+- Création de la méthode d'affichage des forum de l'accueil
+- Création du formulaire d'authentification (Controller + Form + Template)
+- Création du formulaire d'enregistrement (Controller + Form + Template)
+- Création de l'entité de Category
+- Création du DataFixtures de Category
+- Création du controller CategoryController
+- Création de la méthode d'affichage des catégories
+- Création de l'entité de TopicAnswer
+- Création du DataFixtures de TopicAnswer
+- Création du controller TopicController
+- Création du formulaire de réponse d'un sujet/topic
+- 

@@ -10,6 +10,9 @@
 }
 
 .footer-forum{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 4em;
     background-color: #457B9D;
     border-radius: 0 0 10px 10px;
@@ -17,7 +20,11 @@
 
 .block-forum{
     height: 6em;
-    border: 1px solid rgb(145, 145, 145);
+
+    /* border: 1px solid rgb(145, 145, 145); */
+    border-bottom: 1px solid rgb(145, 145, 145);
+    border-left: 1px solid rgb(145, 145, 145);
+    border-right: 1px solid rgb(145, 145, 145);
     display: flex;
     flex-direction:row;
 }
@@ -27,6 +34,7 @@
 }
 
 .forum-title{
+    padding-top: 20px;
     width: 25%;
     padding-left: 10px;
     gap:2px;
@@ -43,7 +51,35 @@
 }
 
 .forum-date{
-    width: 10%;
+    width: 15%;
     display: flex;
+    flex-direction: column;
+    justify-content:center;
     align-items: center;
+    gap: 8px;
+}
+
+.bouton-voir-articles{
+    color: #ffffff;
+}
+
+.button-voir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #FF5A5F;
+    border: none;
+    width: 4em;
+    height: 2em;
+}
+
+.button-voir a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.title-h4-forum{
+    margin-bottom: 12px;
+    margin-top: 0%;
 }

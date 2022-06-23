@@ -2,29 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\TopicAnswer;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use App\Entity\Topic;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TopicAnswerFormType extends AbstractType
+class TopicFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('content', TextareaType::class, [
-                'attr' => [
-                    'class' => 'widget-form-answer'
-                ]
-            ])
+            ->add('title')
+            ->add('content')
+            ->add('published_date')
+            ->add('slug')
+            ->add('author')
+            ->add('category')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => TopicAnswer::class,
+            'data_class' => Topic::class,
         ]);
     }
 }

@@ -4,12 +4,12 @@
     <nav>
         <a href="{{ path('main') }}">Accueil</a>
         <a href="{{ path('category-main') }}">Catégorie</a>
-        <a href="{{ path('main') }}">Forum</a>
+        <a href="{{ path('topic-main') }}">Forum</a>
         {% if is_granted('ROLE_ADMINISTRATOR') %}
             <a href="{{ path('main') }}">Administration</a>
         {% endif %}
         
-       {% if is_granted('ROLE_USER') %}
+       {% if is_granted('ROLE_AUTHOR') %}
 
         <a href="{{ path('main') }}">Profil</a>
 

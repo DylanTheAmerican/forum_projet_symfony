@@ -1,8 +1,8 @@
 <div class="block-forum">
 
     <div class="forum-title">
-        <h4 class="card-title text-truncate">{{ post.title[0:30] }}</h4>
-        <a href="{{ path('category-bySlug', {slug: post.category.slug}) }}" class="badge bg-primary">{{ post.category.title }}</a>
+        <h4 class="title-h4-forum">{{ post.title[0:30] }}</h4>
+        <a href="{{ path('category-bySlug', {slug: post.category.slug}) }}" class="category">{{ post.category.title }}</a>
     </div>
 
     <div class="forum-desc">
@@ -10,8 +10,8 @@
     </div>
 
     <div class="forum-date">
-        <div class="btn-group">
-            <a href="{{ path('topic-bySlug', {slug: post.slug}) }}" class="btn btn-sm btn-outline-secondary">Voir</a>
+        <div class="button-voir">
+            <a href="{{ path('topic-bySlug', {slug: post.slug}) }}" class="">Voir</a>
         </div>
         <small class="text-muted">{{ post.publishedDate|date('d/m/Y H:i') }}</small>
     </div>
