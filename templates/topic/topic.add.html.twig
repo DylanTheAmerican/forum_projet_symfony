@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ topic.title }}{% endblock %}
+{% block title %}Ajouter un topic{% endblock %}
 
 {% block body %}
 
@@ -8,16 +8,16 @@
 
     <div class="forum">
 
-        <h2>Edition / {{ topic.title }}</h2>
+        <h2>Ajouter un forum</h2>
 
         {{ form_start(topicForm) }}
 
             {{ form_row(topicForm.title) }}
             {{ form_row(topicForm.category) }}
-            {{ form_row(topicForm.author) }}
             {{ form_row(topicForm.content) }}
 
-            <button type="submit" class="button-ajouter-comment">Modifier</button>
+            <button type="submit" class="button-ajouter-comment">Poster</button>
+
         {{ form_end(topicForm) }}
 
     </div>

@@ -2,21 +2,26 @@
 
 namespace App\Controller;
 
+use Faker\Factory;
+use Faker\Generator;
+
 use App\Controller\Trait\RoleTrait;
 use App\Entity\Topic;
-use App\Entity\PostComment;
 use App\Entity\TopicAnswer;
 use App\Entity\User;
 use App\Form\TopicAnswerFormType;
-use App\Form\PostFormType;
+use App\Form\AddTopicFormType;
+use App\Form\TopicFormType;
 use App\Repository\TopicAnswerRepository;
 use App\Repository\TopicRepository;
+use DateTimeInterface;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/topic', name: 'topic-')]
 class TopicController extends AbstractController
@@ -33,18 +38,19 @@ class TopicController extends AbstractController
                 12,
                 0
             ),
+            
         ]);
     }
 
     #[Route('/{id<\d+>}/edit', name: 'editById')]
     #[Route('/{slug}/edit', name: 'editBySlug')]
-    public function postEdit(Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
+    public function topicEdit(Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
     {
         if ($response = $this->checkRole('ROLE_AUTHOR')) {
             return $response;
         }
 
-        $form = $this->createForm(TopicAnswerFormType::class, $topic);
+        $form = $this->createForm(TopicFormType::class, $topic);
         $form->handleRequest($request);
 
         if ($this->getUser() && $form->isSubmitted() && $form->isValid()) {
@@ -54,6 +60,36 @@ class TopicController extends AbstractController
         }
 
         return $this->render('topic/topic.edit.html.twig', [
+            'topic' => $topic,
+            'topicForm' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/ajout', name: 'add')]
+    public function topicAdd(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $topic= new Topic; 
+
+        $this->faker = Factory::create('fr_FR');
+        
+        if ($response = $this->checkRole('ROLE_AUTHOR')) {
+            return $response;
+        }
+
+        $form = $this->createForm(AddTopicFormType::class, $topic);
+        $form->handleRequest($request);
+
+        if ($this->getUser() && $form->isSubmitted() && $form->isValid()) {
+            /** @var User $author */
+            $topic->setPublishedDate(new \DateTimeImmutable());
+            $topic->setSlug(str_replace(' ', '-', $topic->getTitle()));
+            $topic->setAuthor($this->getUser());
+            // $topic->setSlug( $this->$slugger->slug($topic->getTitle())->lower());
+            $entityManager->persist($topic);
+            $entityManager->flush();
+        }
+
+        return $this->render('topic/topic.add.html.twig', [
             'topic' => $topic,
             'topicForm' => $form->createView(),
         ]);

@@ -83,3 +83,20 @@
     margin-bottom: 12px;
     margin-top: 0%;
 }
+
+.button-new-topic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #FF5A5F;
+    border: none;
+    width: 10em;
+    height: 3em;
+    margin-bottom: 2em;
+}
+
+.button-new-topic a{
+    color: #ffffff;
+    text-decoration: none;
+}
