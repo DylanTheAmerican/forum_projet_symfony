@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+
+     <div class="">
+            {% for user in user %}
+                {% include '_partials/admin/card.html.twig' with { user: user } only %}
+            {% endfor %}
+        </div>
+
+{% endblock %}

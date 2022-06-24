@@ -32,6 +32,9 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            $user->setSlug(str_replace(' ', '-', $user->getUsername()));
+            $user->setRoles($user->getRoles());
+
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email

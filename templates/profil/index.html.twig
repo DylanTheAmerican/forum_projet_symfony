@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+
+<div class="container-forum">
+
+    <div class="forum">
+
+        <h2>Information du compte</h2>
+
+            {{ form_start(userForm) }}
+
+                {{ form_row(userForm.username) }}
+                {{ form_row(userForm.password) }}
+                {{ form_row(userForm.firstname) }}
+                {{ form_row(userForm.lastname) }}
+                {{ form_row(userForm.address) }}
+                {{ form_row(userForm.postalcode) }}
+                {{ form_row(userForm.city) }}
+                {{ form_row(userForm.email) }}
+                {{ form_row(userForm.phonenumber) }}
+
+                <button type="submit" class="button-ajouter-comment">Modifier</button>
+                
+            {{ form_end(userForm) }}
+
+ <a class="profil-a-black" href="{{ path('app_logout') }}">Deconnexion</a>
+
+    </div>
+
+</div>
+
+{% endblock %}

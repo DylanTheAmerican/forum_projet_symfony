@@ -5,13 +5,14 @@
         <a href="{{ path('main') }}">Accueil</a>
         <a href="{{ path('category-main') }}">Catégorie</a>
         <a href="{{ path('topic-main') }}">Forum</a>
+
         {% if is_granted('ROLE_ADMINISTRATOR') %}
-            <a href="{{ path('main') }}">Administration</a>
+            <a href="{{ path('admin-user') }}">Administration</a>
         {% endif %}
         
        {% if is_granted('ROLE_AUTHOR') %}
 
-        <a href="{{ path('main') }}">Profil</a>
+        <a href="{{ path('profil', {id: app.user.id }) }}">Profil</a>
 
         {% else %}
         
