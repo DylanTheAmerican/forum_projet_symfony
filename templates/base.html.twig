@@ -13,6 +13,7 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
     </head>
     <body>
 
@@ -23,11 +24,15 @@
 
                 <div class="text-titre-forum">
 
-                <h1>FORUM</h1>
+                        {% block blockh1 %}
+
+                        {% endblock %}
 
                 </div>
 
             </div>
+
+    
             {% include '_partials/header.html.twig' %}
             {% block body %}{% endblock %}
         </main>

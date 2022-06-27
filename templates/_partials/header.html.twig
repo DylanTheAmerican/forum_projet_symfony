@@ -2,23 +2,34 @@
     <div id="header-other">
      <img src="{{ asset('img/logo-02.png') }}" id="logo-header" alt="Logo - Dotcode">
     <nav>
-        <a href="{{ path('main') }}">Accueil</a>
-        <a href="{{ path('category-main') }}">Catégorie</a>
-        <a href="{{ path('topic-main') }}">Forum</a>
+        	
+        <label for="toggle" class="label-toggle">☰</label>
+        <input type="checkbox" id="toggle"> 
 
-        {% if is_granted('ROLE_ADMINISTRATOR') %}
-            <a href="{{ path('admin-main') }}">Administration</a>
-        {% endif %}
-        
-       {% if is_granted('ROLE_AUTHOR') %}
+        <div class="div-nav">
 
-        <a href="{{ path('profil', {id: app.user.id }) }}">Profil</a>
+            <a href="{{ path('main') }}">Accueil</a>
+            <a href="{{ path('category-main') }}">Catégorie</a>
+            <a href="{{ path('topic-main') }}">Forum</a>
 
-        {% else %}
-        
-            <a href="{{ path('app_login') }}">Connexion</a>
+            {% if is_granted('ROLE_ADMINISTRATOR') %}
+                <a href="{{ path('admin-main') }}">Administration</a>
+            {% endif %}
+            
+        {% if is_granted('ROLE_AUTHOR') %}
 
-        {% endif %}
+            <a href="{{ path('profil', {id: app.user.id }) }}">Profil</a>
+
+            {% else %}
+            
+                <a href="{{ path('app_login') }}">Connexion</a>
+
+            {% endif %}
+
+        </div>
+
     </nav>
+        
+        
     </div>
 </header>

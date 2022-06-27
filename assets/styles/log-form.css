@@ -3,7 +3,8 @@
     height: 3.5em;
     border-radius: 5px;
     border: 1px solid rgb(155, 155, 155);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .fieldset-form{
@@ -50,3 +51,16 @@
     font-size: 15px;
     color: #ffffff;
  }
+
+ @media screen and (max-width : 900px) {
+
+   .widget-form{
+      margin-bottom: 10px;
+      margin-top: 10px;
+   }
+
+   /* .widget-form label{
+      display: none;
+   } */
+
+}

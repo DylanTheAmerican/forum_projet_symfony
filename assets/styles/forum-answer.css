@@ -192,3 +192,36 @@
     color: #ffffff;
     text-decoration: none;
 }
+
+.button-supp-topic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #db0000;
+    border: none;
+    width: 3em;
+    height: 2em;
+}
+
+.fa-trash-can{
+    color: #ffffff;
+}
+
+@media screen and (max-width : 1000px) {
+
+    .topic-sujet-auteur{
+        padding-left: 20px;
+        display: flex;
+        align-items: center;
+        width: 40%;
+    }
+
+    .topic-sujet-content{
+        display: flex;
+        align-items: center;
+        padding-right: 20px;
+        width: 60%;
+    }
+ 
+ }

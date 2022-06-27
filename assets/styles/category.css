@@ -50,3 +50,11 @@
 .fa-pen-to-square{
     color: #ffffff;
 }
+
+@media screen and (max-width : 900px) {
+   
+    .category-grille{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
