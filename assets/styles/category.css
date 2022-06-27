@@ -29,3 +29,24 @@
     text-decoration: none;
 
 }
+
+.container-buttons-category{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.button-edit-category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #a0a0a0;
+    border: none;
+    width: 3em;
+    height: 2em;
+}
+
+.fa-pen-to-square{
+    color: #ffffff;
+}

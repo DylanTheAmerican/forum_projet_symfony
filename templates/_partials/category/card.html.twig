@@ -4,9 +4,13 @@
 
         <h4 class="title-h4-forum">{{ category.title }}</h4>
         
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="container-buttons-category">
             <div class="button-voir-les-articles">
                 <a href="{{ path('category-bySlug', {slug: category.slug}) }}">Voir les articles</a>
+            </div>
+
+             <div class="button-edit-category">
+                <a href="{{ path('category-edit-bySlug', {slug: category.slug}) }}"> <i class="fa-solid fa-pen-to-square"></i></a>
             </div>
         </div>
 

@@ -57,6 +57,8 @@ class TopicController extends AbstractController
             /** @var User $author */
             $entityManager->persist($topic);
             $entityManager->flush();
+
+            return $this->redirectToRoute('topic-main');
         }
 
         return $this->render('topic/topic.edit.html.twig', [
@@ -87,6 +89,8 @@ class TopicController extends AbstractController
             // $topic->setSlug( $this->$slugger->slug($topic->getTitle())->lower());
             $entityManager->persist($topic);
             $entityManager->flush();
+
+            return $this->redirectToRoute('topic-main');
         }
 
         return $this->render('topic/topic.add.html.twig', [
