@@ -22,11 +22,15 @@
                 {{ form_row(userForm.email) }}
                 {{ form_row(userForm.phonenumber) }}
 
+            <div class="buttons-profil">
+            
                 <button type="submit" class="button-ajouter-comment">Modifier</button>
                 
             {{ form_end(userForm) }}
 
- <a class="profil-a-black" href="{{ path('app_logout') }}">Deconnexion</a>
+                <a class="button-deconnexion" href="{{ path('app_logout') }}">Deconnexion</a>
+
+            </div>
 
     </div>
 

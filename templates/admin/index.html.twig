@@ -3,11 +3,20 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
+<div class="container-forum">
 
-     <div class="">
-            {% for user in user %}
-                {% include '_partials/admin/card.html.twig' with { user: user } only %}
-            {% endfor %}
-        </div>
+    <div class="forum">
+
+        <h2>Utilisateurs</h2>
+
+            <div class="">
+                    {% for user in users %}
+                        {% include '_partials/admin/card.html.twig' with { user: user } only %}
+                    {% endfor %}
+            </div>
+
+    </div>
+
+</div>
 
 {% endblock %}

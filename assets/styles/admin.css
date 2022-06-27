@@ -1,0 +1,33 @@
+.user-list{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.user-list-names{
+    width: 6em;
+}
+
+.user-list-names p{
+    margin: 5px 0 0 0;
+}
+
+.user-list-names-title{
+    width: 6em;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgb(148, 146, 146);
+}
+
+.user-list-username-title{
+    width: 7em;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgb(148, 146, 146);
+}
+
+.button-user-list{
+    padding-top: 5px;
+}

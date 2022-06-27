@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ProfilController extends AbstractController
 {
-
     
     #[Route('profil/{id}', name: 'profil')]
     public function index(Request $request, User $user, EntityManagerInterface $entityManager): Response

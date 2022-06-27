@@ -1,10 +1,40 @@
-{% extends 'base.html.twig' %}
+<div class="user-list">
 
-{% block title %}Utilisateurs{% endblock %}
+        <div>
+                <div class="user-list-names-title">
+                        Prénom
+                </div>
+                <div class="user-list-names">
+                        <p>{{ user.firstname }}</p>
+                </div>
+        </div>
 
-{% block body %}
+        <div>
+                <div class="user-list-names-title">
+                        Nom
+                </div>
+                <div class="user-list-names">
+                        <p>{{ user.lastname }}</p>
+                </div>
+        </div>
 
-        <h2>Utilisateurs</h2>
-       <h4 class="title-h4-forum">{{ user.firstname }}</h4>
+        <div>
+                <div class="user-list-username-title">
+                        Nom utilisateur
+                </div>
+                <div class="user-list-names">
+                        <p>{{ user.username }}</p>
+                </div>
+        </div>
 
-{% endblock %}
+        <div class="button-user-list">
+                <div class="button-edit-category">
+                        <a href="{{ path('admin-edit-bySlug', {slug: user.slug}) }}"> <i class="fa-solid fa-pen-to-square"></i></a>
+                 </div>
+
+        </div>
+        
+        
+</div>
+
+<hr style="border: 1px solid #d8d8d8; margin:0px;">

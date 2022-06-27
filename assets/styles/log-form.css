@@ -32,3 +32,21 @@
     color:white;
     font-size: 15px;
  }
+
+ .buttons-profil{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+ }
+ .button-deconnexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #db0000;
+    text-decoration: none;
+    width: 15em;
+    height: 3em;
+    font-size: 15px;
+    color: #ffffff;
+ }

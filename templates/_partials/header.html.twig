@@ -7,7 +7,7 @@
         <a href="{{ path('topic-main') }}">Forum</a>
 
         {% if is_granted('ROLE_ADMINISTRATOR') %}
-            <a href="{{ path('admin-user') }}">Administration</a>
+            <a href="{{ path('admin-main') }}">Administration</a>
         {% endif %}
         
        {% if is_granted('ROLE_AUTHOR') %}

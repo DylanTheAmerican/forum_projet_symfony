@@ -9,9 +9,13 @@
                 <a href="{{ path('category-bySlug', {slug: category.slug}) }}">Voir les articles</a>
             </div>
 
+            {% if is_granted('ROLE_ADMINISTRATOR') %}
+
              <div class="button-edit-category">
                 <a href="{{ path('category-edit-bySlug', {slug: category.slug}) }}"> <i class="fa-solid fa-pen-to-square"></i></a>
             </div>
+
+            {% endif %}
         </div>
 
     </div>

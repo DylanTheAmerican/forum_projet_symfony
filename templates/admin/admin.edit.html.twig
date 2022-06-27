@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ user.username }}{% endblock %}
+
+{% block body %}
+
+<div class="container-forum">
+
+    <div class="forum">
+
+        <h2>Edition / {{ user.username }}</h2>
+
+        {{ form_start(editUserForm) }}
+
+                {{ form_row(editUserForm.username) }}
+                {{ form_row(editUserForm.password) }}
+                {{ form_row(editUserForm.firstname) }}
+                {{ form_row(editUserForm.lastname) }}
+                {{ form_row(editUserForm.address) }}
+                {{ form_row(editUserForm.postalcode) }}
+                {{ form_row(editUserForm.city) }}
+                {{ form_row(editUserForm.email) }}
+                {{ form_row(editUserForm.phonenumber) }}
+
+            <button type="submit" class="button-ajouter-comment">Modifier</button>
+
+        {{ form_end(editUserForm) }}
+
+    </div>
+
+</div>
+
+{% endblock %}
