@@ -7,10 +7,21 @@ Pour intaller le projet utilisez la commande ci dessous :
 git clone https://github.com/DylanTheAmerican/forum_projet_symfony.git
 ```
 
-PLacer vous dans le dossier :
+Placer vous dans le dossier :
 ```bash
 cd forum_projet_symfony
 ```
+Installez le composer
+```bash
+symfony composer install
+```
+```bash
+npm install
+```
+```bash
+npm run build
+```
+
 
 Vous devez ensuite creer une base de donnée et mettre son url dans le fichier .env :
 
