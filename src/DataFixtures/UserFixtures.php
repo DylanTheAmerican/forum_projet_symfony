@@ -28,16 +28,29 @@ class UserFixtures extends Fixture
         }
 
         $this->createUser($manager, [
-            'username' => 'Loken32',
+            'username' => 'admin',
             'roles' => ['ROLE_AUTHOR', 'ROLE_ADMINISTRATOR'],
-            'password' => 'DylanCampion',
+            'password' => 'adminpassword',
             'firstname' => 'Dylan',
             'lastname' => 'Campion',
-            'address' => 'Rue 12',
-            'postalcode' => '32600',
-            'city' => 'Isle Jourdain',
-            'email' => 'dylan.campion@gmail.com',
+            'address' => 'Allée Charles de Fitte',
+            'postalcode' => '31000',
+            'city' => 'Toulouse',
+            'email' => 'admin.footforum@gmail.com',
             'phonenumber' => '0606060606',
+        ]);
+
+        $this->createUser($manager, [
+            'username' => 'loken32',
+            'roles' => ['ROLE_AUTHOR'],
+            'password' => 'azerty32',
+            'firstname' => 'Antoine',
+            'lastname' => 'Daniel',
+            'address' => 'Rue des Fauvettes',
+            'postalcode' => '33000',
+            'city' => 'Bordeaux',
+            'email' => 'antoine.daniel@gmail.com',
+            'phonenumber' => '0706060356',
         ]);
 
         $manager->flush();

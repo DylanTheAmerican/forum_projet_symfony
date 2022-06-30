@@ -29,10 +29,16 @@ class CategoryFixtures extends Fixture
 
                 $subChildCount = $this->faker->numberBetween(0, 2);
                 for ($c = 0; $c < $subChildCount; $c++) {
-                    $this->createCategory($manager, $category);
+                    $this->createCategory($manager, $parent);
                 }
             }
         }
+
+        // $this->createCategory($manager, $category, [
+        //     'parent_id' => '',
+        //     'title' => 'Ligue des champions',
+        //     'slug' => 'ligue-des-champions',
+        // ]);
 
         $manager->flush();
     }

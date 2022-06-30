@@ -14,4 +14,8 @@
 - Création du DataFixtures de TopicAnswer
 - Création du controller TopicController
 - Création du formulaire de réponse d'un sujet/topic
-- 
+- Création du formulaire d'ajout/ceation d'un topic (Function + Form + Template)
+- Création du controller ProfilController
+- Création du formulaire d'edition de profil
+- Création du controller AdminController
+- Création du formulaire d'edition de categorie (Pour l'administrateur)
