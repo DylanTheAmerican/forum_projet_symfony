@@ -23,11 +23,18 @@ npm run build
 ```
 
 
-Vous devez ensuite creer une base de donnée et mettre son url dans le fichier .env :
+Vous devez modifier l'url dans le fichier .env (ligne 31) pour la faire correspondre à vorte BDD :
+    ```bash
+    DATABASE_URL="mysql://username:password@127.0.0.1:8889/BDDName?serverVersion=5.7"
+    ```
+> :warnin: Votre serveur doit être démarré
+
+- Creation de la base de donnée
 
     ```bash
-    ligne 31 : DATABASE_URL="mysql://username:password@127.0.0.1:8889/BDDName?serverVersion=5.7"
+    symfony console doctrine:database:create
     ```
+
 - Mise à jour de la base de donnée
     ```bash
     symfony console make:migration

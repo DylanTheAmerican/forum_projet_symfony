@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\TopicAnswer;
 use App\Entity\User;
 use App\Form\EditUserFormType;
 use App\Repository\UserRepository;
@@ -48,4 +49,15 @@ class AdminController extends AbstractController
             'user' => $user,
         ]);
     }
+
+    #[Route('delete/{id}', name: 'delete-answer')]
+    public function deleteAnswer(Request $request, TopicAnswer $topicAnswer, EntityManagerInterface $entityManager): Response
+    {
+        $topic = $topicAnswer->getTopic();
+        $entityManager->remove($topicAnswer);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('topic-bySlug',['slug' => $topic->getSlug()]);
+    }
+
 }
